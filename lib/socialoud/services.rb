@@ -9,7 +9,6 @@ module Socialoud
       end
 
       def setup!
-        raise "You should implement #{self.class.name}#setup!"
       end
 
       def set(key, value)
