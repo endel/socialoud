@@ -1,14 +1,14 @@
 require 'yaml'
 
 module Socialoud
-  class Aggregator
+  class Client
     attr_accessor :services
 
     def self.configure(data)
-      aggr = Aggregator.new
+      aggr = Client.new
       hash = data.is_a?(Hash) ? data : YAML.load_file(data)
 
-      services = { 'info' => Services::Info.new(hash['info'], aggr) }
+      services = {}
       hash['services'].each_pair do |service, config|
         service_const = Socialoud::Services.const_get("#{service[0..0].upcase}#{service[1..-1]}")
         services[service] = service_const.new(config, aggr)
@@ -18,6 +18,11 @@ module Socialoud
         instance.setup!
       end
       aggr
+    end
+
+    def add_service!(name, instance)
+      services[name] = instance
+      instance.setup!
     end
 
     def method_missing(method, *args)

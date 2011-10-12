@@ -10,6 +10,10 @@ module Socialoud
         @client = ::Twitter::Client.new
       end
 
+      def profile_url
+        "http://twitter.com/#{@username}"
+      end
+
       def last_tweet
         last_tweets = @client.user_timeline(@data, {:count => 5})
         (last_tweets.select {|t| t['text'].index('@') != 0 }.first || last_tweets.first)['text']
