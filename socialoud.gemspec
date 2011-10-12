@@ -14,6 +14,12 @@ Gem::Specification.new do |s|
   s.files = %w(LICENSE) + Dir.glob("{lib}/**/*")
   s.require_path = "lib"
 
+  s.add_dependency "twitter",   "~> 1.7.2"
+  s.add_dependency "octopi",    "~> 0.4.5"
+  s.add_dependency "nokogiri",  "~> 1.5.0"
+  s.add_dependency "httparty",  "~> 0.8.0"
+  s.add_dependency "sinatra",   "~> 1.3.1"
+
   s.description = <<description
   Simple social aggregation written in Ruby.
   With this gem you can create your custom social network overview.
