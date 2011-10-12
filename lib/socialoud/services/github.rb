@@ -10,7 +10,7 @@ module Socialoud
       end
 
       def profile_url
-
+        "http://github.com/#{@data}"
       end
 
       def method_missing(method, *args)
