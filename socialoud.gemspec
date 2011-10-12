@@ -1,7 +1,7 @@
 require 'rake/gempackagetask'
 require 'rake/rdoctask'
 
-VERSION = '0.1'
+VERSION = '0.1.0'
 
 Gem::Specification.new do |s|
   s.name = 'socialoud'
