@@ -1,7 +1,7 @@
 Socialoud
 =========
 With this gem you can create your custom social network overview.
-See an example [here](http://github.com/endel/endel-socialoud).
+See the default example app [here](http://github.com/endel/socialoud-default).
 
 Recomendations
 -------------
