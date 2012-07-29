@@ -1,6 +1,8 @@
 source :rubygems
 gemspec
 
+gem 'rake'
+
 group :test do
   gem 'rspec', '>= 2.8.0'
   gem 'ruby-debug',             :platforms => :ruby_18
