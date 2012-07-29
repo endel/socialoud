@@ -3,6 +3,8 @@ services:
   linkedin:
     user: endel
     url: 'http://www.linkedin.com/in/endel'
-  github: endel
+  github:
+    user: robot-test
+    password: h4ck3rh4ck3r
   twitter: endel
   facebook: endel.dreyer

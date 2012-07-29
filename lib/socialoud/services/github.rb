@@ -1,4 +1,4 @@
-require 'octopi'
+require 'github_api'
 
 module Socialoud
   module Services
@@ -6,11 +6,17 @@ module Socialoud
       attr_reader :user
 
       def repositories
-        Octopi::Repository.find(:user => @data)
+        fetch_user!
+        @user.repos.all
+      end
+
+      def followers
+        fetch_user!
+        @user.users.followers.all
       end
 
       def profile_url
-        "http://github.com/#{@data}"
+        "http://github.com/#{@data['user'] || @data}"
       end
 
       def method_missing(method, *args)
@@ -24,7 +30,10 @@ module Socialoud
 
       private
         def fetch_user!
-          @user ||= Octopi::User.find(@data)
+          @user ||= begin
+                      raise "Github config error: 'user' and 'password' are required." if @data['user'].nil? || @data['password'].nil?
+                      ::Github.new(:basic_auth => "#{@data['user']}:#{@data['password']}")
+                    end
         end
     end
   end

@@ -56,8 +56,11 @@ describe Socialoud do
   describe Socialoud::Services::Github do
     it 'should retrieve list of repositories' do
       aggregator.github.repositories.should be_an_instance_of Array
-      aggregator.github.followers.should be_an_instance_of Array
-      puts aggregator.github.user.methods.inspect
+      aggregator.github.repositories.first.should respond_to :name
+    end
+
+    it "should retrieve list of followers" do
+      aggregator.github.followers
     end
   end
 end
