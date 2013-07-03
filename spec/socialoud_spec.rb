@@ -2,14 +2,14 @@
 require File.expand_path('spec/spec_helper')
 
 describe Socialoud do
-  aggregator = nil
+  let(:aggregator) { Socialoud::Client.configure(File.expand_path('spec/fixtures/config.yml')) }
+
   describe Socialoud::Client do
     it 'should be already included' do
       defined?(Socialoud::Client).should == 'constant'
     end
 
     it 'should load YAML configuration' do
-      aggregator = Socialoud::Client.configure(File.expand_path('spec/fixtures/config.yml'))
       aggregator.should be_an_instance_of Socialoud::Client
     end
   end
@@ -24,7 +24,7 @@ describe Socialoud do
   describe Socialoud::Services::Twitter do
     it 'should retrieve last tweet' do
       aggregator.twitter.last_tweet.should be_an_instance_of String
-      aggregator.twitter.location.should == 'São Leopoldo, Brazil'
+      aggregator.twitter.location.should == 'Porto Alegre, Brazil'
     end
   end
 

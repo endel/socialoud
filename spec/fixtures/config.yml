@@ -6,5 +6,10 @@ services:
   github:
     user: robot-test
     password: h4ck3rh4ck3r
-  twitter: endel
+  twitter:
+    user: 'endel'
+    consumer_key: 'fhFHmdT1upI916QaVLVTw'
+    consumer_secret: 'dF4rfy7oPionEae6UKqoDVmW88aUCN7XH2Kt9SC1v0'
+    access_token: '16103025-MRtA52VJma45AIphNgwAVRSJClyIcdM1cXcmLws'
+    access_token_secret: 'MMqMxvGk1nBmrLuqrFHdrjjgZXJWrsve05QifCSc'
   facebook: endel.dreyer

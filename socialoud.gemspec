@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name = 'socialoud'
-  s.version = '0.1.2'
+  s.version = '0.1.3'
   s.summary = 'Simple social aggregation tool written in Ruby.'
   s.homepage = "http://github.com/endel/socialoud"
 
@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
   s.files = %w(LICENSE) + Dir.glob("{lib}/**/*")
   s.require_path = "lib"
 
-  s.add_runtime_dependency "twitter",    "~> 3.4.1"
+  s.add_runtime_dependency "twitter",    ">= 4.0.0"
   s.add_runtime_dependency "github_api", "~> 0.6.4"
   s.add_runtime_dependency "nokogiri",   "~> 1.5.0"
   s.add_runtime_dependency "httparty",   "~> 0.8.0"

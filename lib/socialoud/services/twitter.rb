@@ -7,6 +7,14 @@ module Socialoud
 
       def setup!
         @username = @data['user'] || @data
+
+        ::Twitter.configure do |config|
+          config.consumer_key = @data['consumer_key']
+          config.consumer_secret = @data['consumer_secret']
+          config.oauth_token = @data['oauth_token']
+          config.oauth_token_secret = @data['oauth_token_secret']
+        end
+
         @client = ::Twitter::Client.new
       end
 
@@ -15,7 +23,7 @@ module Socialoud
       end
 
       def last_tweet
-        last_tweets = @client.user_timeline(@data, {:count => 5})
+        last_tweets = @client.user_timeline(@username, {:count => 5})
         (last_tweets.select {|t| t['text'].index('@') != 0 }.first || last_tweets.first)['text']
       end
 
