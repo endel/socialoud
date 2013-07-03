@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name = 'socialoud'
-  s.version = '0.1.3'
+  s.version = '0.1.4'
   s.summary = 'Simple social aggregation tool written in Ruby.'
   s.homepage = "http://github.com/endel/socialoud"
 
